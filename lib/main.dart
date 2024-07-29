@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
 
+String? globalCachedUserToken;
+String? globalCachedUserLang;
+String? globalCachedUserName;
+String? globalCachedUserID;
+String? globalCachedUserPhoneNum;
+//  const String globalDefaltCachedNetworkImage = "https://www.istockphoto.com/illustrations/green-shopping-cart-icon";
+const String globalDefaltCachedNetworkImage =
+    "https://cdn4.iconfinder.com/data/icons/social-media-2070/140/_shopify-512.png";
+
+// final GlobalKey mainAppKey = GlobalKey();
 void main() {
   runApp(const MyApp());
 }
