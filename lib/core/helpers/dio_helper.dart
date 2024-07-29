@@ -95,7 +95,7 @@ class DioHelper {
               },
             )
           : await _dio!.post(
-              // post without emial
+              // post without emial ( just username and phone number )
               signUpUrl,
               data: {
                 "name": name,
@@ -103,8 +103,6 @@ class DioHelper {
                 "password": password,
               },
             );
-
-      // print('ressssssssssssssssssssssssssssspons: $response');
 
       // if (response.statusCode == 200) {
       //   // print('ressssssssssssssssssssssssssssspons: ${response}');
@@ -115,7 +113,7 @@ class DioHelper {
     }
   }
 
-  // #### the olddddd get home categories #### //
+  // #### get home categories version 1 #### //
 
   // static Future<Response> getCategories() async {
   //   try {
@@ -129,7 +127,7 @@ class DioHelper {
   //   }
   // }
 
-  // #### the newwww get home categories #### //
+  // #### get home categories version 2 #### //
   static Future<Response> getHomeMainCategories() async {
     try {
       final response = await _dio!.get(
@@ -141,8 +139,9 @@ class DioHelper {
     }
   }
 
-  // #### the newwww get home categories #### //
+  // #### get new products #### //
   static Future<Response> getNewProductsHome(
+    // use pagination
       {required final String? collection}) async {
     try {
       final response = await _dio!.post(getHomeCollectionUrl, data: {
@@ -171,7 +170,6 @@ class DioHelper {
   // #### get all subCategorys of main category #### //
   static Future<Response> getAllSubCategoryOfMainCategory(
       {required final int mainCategoryID}) async {
-    // print("geeeeeeeeeeeeeeeeeeeeeeeeeeeeet sub categories");
     try {
       // pass the main category id
       final Response response = await _dio!.get(
@@ -214,12 +212,7 @@ class DioHelper {
 
       // {required final int subCategoryID}
       ) async {
-    // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ==========");
-    // globalCachedUserToken =
-    //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Imh1bW1hbSIsImVtYWlsIjpudWxsLCJnZW5kZXIiOm51bGwsIm5hdGlvbmFsaXR5IjpudWxsLCJET0IiOm51bGwsInBob25lTnVtYmVyIjoiMTIzNDU2Nzg5MCIsInBob25lVmVyaWZpZWRBdCI6bnVsbCwiZW1haWxWZXJpZmllZEF0IjpudWxsLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTI3VDA4OjM3OjE5LjkxN1oiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTI3VDA4OjM3OjE5LjkxN1oiLCJpc0RlbGV0ZWQiOmZhbHNlLCJpc0Jsb2NrZWQiOmZhbHNlLCJibG9ja2VkQnkiOm51bGwsImFkZHJlc3NlcyI6W10sImlhdCI6MTcxNzUwOTYzNiwiZXhwIjoxNzQ5MDY3MjM2fQ.kWKmBpWAITgphXtND1mnHGJzJ4pZV55TlDGOdt6c954";
     try {
-      // print(
-      //     "=================================================$globalCachedUserToken");
       final Response response = await _dio!.get(
         // headers.  ,
         getCartUrl,
@@ -245,8 +238,6 @@ class DioHelper {
         data: {"productAttributeId": productAttributeId},
       );
 
-      // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr $response");
-      print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ");
       return response;
     } catch (e) {
       throw Exception(e);
@@ -277,20 +268,17 @@ class DioHelper {
   //   }
   // }
 
-  // #### get confirm payment #### //
-  static Future<Response> getConfirmPayment({
+  // #### get payment confirmation #### //
+  static Future<Response> getPaymentConfirmation({
     required final int orderId,
     // required final OrderAddress orderAddress ,
   }) async {
-    // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ==========");
     try {
       final Response response = await _dio!.get(
         // headers.  ,
         getConfirmOrder + orderId.toString(),
       );
 
-      // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr $response");
-      // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ${globalCachedUserToken}");
       return response;
     } catch (e) {
       throw Exception(e);
@@ -332,7 +320,7 @@ class DioHelper {
       // ?? CacheHelper.getData(key: "token"),
       //'Content-Type': 'application/json',
     };
-    print(_dio!.options.headers);
+    // print(_dio!.options.headers);
     return await _dio!.get(
       url,
       queryParameters: query,
@@ -364,7 +352,7 @@ class DioHelper {
         data: data,
       );
     } catch (e) {
-      print('err: $e');
+      // print('err: $e');
       return Response(requestOptions: RequestOptions());
     }
   }
@@ -425,7 +413,7 @@ class DioHelper {
     );
   }
 
-  // #### genral dio deleteData #### //
+  // #### genral dio delete Data #### //
   static Future<Response> deleteData({
     required String url,
     Map<String, dynamic>? queryParameters,
