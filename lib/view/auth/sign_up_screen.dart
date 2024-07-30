@@ -1,28 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/cupertino.dart';
+import 'package:awr_flutter_application/core/functions/navigation.dart';
+import 'package:awr_flutter_application/core/helpers/user_experence_helper.dart';
+import 'package:awr_flutter_application/core/themes/colors.dart';
+import 'package:awr_flutter_application/view/home/home_screen.dart';
+import 'package:awr_flutter_application/view/shared/error_screen.dart';
+import 'package:awr_flutter_application/view/shared/loading_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:select_shop/core/helpers/user_experience_helper.dart';
-import 'package:select_shop/generated/l10n.dart';
-import 'package:select_shop/l10n/app_localizations.dart';
-import 'package:select_shop/view/Auth/bloc/auth_bloc.dart';
-import 'package:select_shop/view/Shared/app_toast.dart';
-import 'package:select_shop/view/Shared/error_screen.dart';
-import 'package:select_shop/view/Shared/loading_screen.dart';
-import 'package:select_shop/view/Shared/under_develop_screen.dart';
-import 'package:select_shop/core/constants/app_constants.dart';
-import 'package:select_shop/core/constants/app_images.dart';
-import 'package:select_shop/core/functions/nav_func.dart';
-import 'package:select_shop/core/theme/colors.dart';
-import 'package:select_shop/core/theme/light.dart';
-import 'package:select_shop/view/Auth/login_screen.dart';
-import 'package:select_shop/view/home/home_screen.dart';
-
-part "widgets/signup_widgets.dart";
 
 bool _obscuringTextOrNot = true;
 bool? _userAgreementChecked = false;
@@ -442,7 +429,7 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  Container _PasswordFormFeild(BuildContext context) {
+  Container  _PasswordFormFeild(BuildContext context) {
     return Container(
       // password feild
       decoration: BoxDecoration(
