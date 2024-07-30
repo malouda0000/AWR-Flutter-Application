@@ -1,13 +1,11 @@
+import 'package:awr_flutter_application/core/constants/app_constants.dart';
+import 'package:awr_flutter_application/core/constants/app_images.dart';
+import 'package:awr_flutter_application/core/functions/navigation.dart';
+import 'package:awr_flutter_application/core/themes/colors.dart';
+import 'package:awr_flutter_application/view/auth/log_in_screen.dart';
+import 'package:awr_flutter_application/view/auth/new_password_screen.dart';
+import 'package:awr_flutter_application/view/shared/app_button.dart';
 import 'package:flutter/material.dart';
-import 'package:select_shop/core/constants/app_constants.dart';
-import 'package:select_shop/core/constants/app_images.dart';
-import 'package:select_shop/core/functions/nav_func.dart';
-import 'package:select_shop/core/theme/colors.dart';
-import 'package:select_shop/generated/l10n.dart';
-import 'package:select_shop/l10n/app_localizations.dart';
-import 'package:select_shop/view/Auth/login_screen.dart';
-import 'package:select_shop/view/Auth/new_password_screen.dart';
-import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class OtpScreen extends StatelessWidget {
@@ -74,7 +72,7 @@ class OtpScreen extends StatelessWidget {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: Text("Verification Code"),
+                            title: const Text("Verification Code"),
                             content: Text('Code entered is $verificationCode'),
                           );
                         });
