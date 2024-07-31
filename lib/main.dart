@@ -1,4 +1,6 @@
+import 'package:awr_flutter_application/generated/I10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 String? globalCachedUserToken;
 String? globalCachedUserLang;
@@ -42,6 +44,22 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+
+       supportedLocales: const [Locale('en'), Locale('ar')],
+  localizationsDelegates: const [
+    S.delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ],
+  localeResolutionCallback: (deviceLocale, supportedLocales) {
+    for (var locale in supportedLocales) {
+      if (deviceLocale != null && deviceLocale.languageCode == locale.languageCode) {
+        return deviceLocale;
+      }
+    }
+    return supportedLocales.first;
+  },
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
