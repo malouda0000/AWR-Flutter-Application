@@ -330,14 +330,15 @@ class _LoginBodyState extends State<_LoginBody> {
                   // signInFormKey.currentState!.validate() == true
                   //     ? print("${signInFormKey.currentState!.validate()}")
                   //     : print("${signInFormKey.currentState!.validate()}");
-                  if (signInFormKey.currentState!.validate() == true) {
-                    context.read<AuthBloc>().add(AuthLogInEvent(
-                          theContext: context,
-                        ));
-                  }
+                  // if (signInFormKey.currentState!.validate() == true) {
+                  //   context.read<AuthBloc>().add(AuthLogInEvent(
+                  //         theContext: context,
+                  //       ));
+                  // }
 
-                  // print(
-                  //     "==============================${signInFormKey.currentState!.validate()}");
+                  if (signInFormKey.currentState!.validate() == true) {
+                    navigateToWithReplacement(context, HomeScreen());
+                  }
                 },
                 child: Container(
                   height: 40,
@@ -534,7 +535,11 @@ class _AuthCustomIcon extends StatelessWidget {
                         // ),
                       ),
                     ),
-                    Center(child: Image.asset(AppImages.girlLoginScreenPng)),
+                    // Center(child: Image.asset(AppImages.girlLoginScreenPng)),
+                    Center(
+                        child: Image.asset(
+                      AppImages.logoPng,
+                    )),
                   ]),
                 ),
                 const SizedBox(
