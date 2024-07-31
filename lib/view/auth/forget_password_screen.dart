@@ -4,6 +4,7 @@ import 'package:awr_flutter_application/core/constants/app_constants.dart';
 import 'package:awr_flutter_application/core/constants/app_images.dart';
 import 'package:awr_flutter_application/core/functions/navigation.dart';
 import 'package:awr_flutter_application/core/themes/colors.dart';
+import 'package:awr_flutter_application/generated/I10n.dart';
 import 'package:awr_flutter_application/view/auth/log_in_screen.dart';
 import 'package:awr_flutter_application/view/auth/otp_screen.dart';
 import 'package:awr_flutter_application/view/shared/app_button.dart';

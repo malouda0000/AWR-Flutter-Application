@@ -3,6 +3,7 @@
 import 'package:awr_flutter_application/core/functions/navigation.dart';
 import 'package:awr_flutter_application/core/helpers/user_experence_helper.dart';
 import 'package:awr_flutter_application/core/themes/colors.dart';
+import 'package:awr_flutter_application/generated/I10n.dart';
 import 'package:awr_flutter_application/view/home/home_screen.dart';
 import 'package:awr_flutter_application/view/shared/error_screen.dart';
 import 'package:awr_flutter_application/view/shared/loading_screen.dart';
