@@ -2,6 +2,7 @@
 
 import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:awr_flutter_application/core/themes/colors.dart';
+import 'package:awr_flutter_application/view/shared/under_dev_screen.dart';
 // import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
@@ -46,9 +47,62 @@ class _HomeScreenState extends State<HomeScreen> {
               // drawer: CustomDrawer(
               //   theHomeBuildContext: context,
               // ),
-              drawer: Drawer( ), 
+              drawer: Drawer(
+                // drawer: Drawer(
+                child: ListView(
+                  children: [
+                    DrawerHeader(
+                      decoration: BoxDecoration(
+                        color: AppColors.mainColor,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          CircleAvatar(
+                            radius: 40,
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.person,
+                              size: 40,
+                              color: AppColors.mainColor,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          // Text(
+                          //   "AWR",
+                          //   style: TextStyle(
+                          //       color: Colors.white,
+                          //       fontSize: 20,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "awr@gamil.com",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               // appBar: CustomAppBar(),
               appBar: AppBar(
+                leading: IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  icon: Icon(
+                    Icons.menu,
+                    color: AppColors.mainColor,
+                  ),
+                ),
                 title: Text(
                   // AppLocalizations.of(context)!.home,
                   "AWR",
@@ -57,10 +111,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 actions: [
                   IconButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => SearchScreen()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => UnderDevScreen()));
                     },
                     icon: Icon(
                       Icons.search,
@@ -98,11 +152,11 @@ class _HomeScreenState extends State<HomeScreen> {
               //   ),
               // ),
 
-            //   floatingActionButtonLocation:
-            //       FloatingActionButtonLocation.centerDocked,
-            //   floatingActionButton: CustomFloatingAcctionButton(),
-            //   bottomNavigationBar: CustomBottomNavBar(),
-            //   resizeToAvoidBottomInset: false, // Set this to false
+              //   floatingActionButtonLocation:
+              //       FloatingActionButtonLocation.centerDocked,
+              //   floatingActionButton: CustomFloatingAcctionButton(),
+              //   bottomNavigationBar: CustomBottomNavBar(),
+              //   resizeToAvoidBottomInset: false, // Set this to false
             ),
           ),
         ));

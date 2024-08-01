@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: customLightTheme,
       supportedLocales: const [Locale('en'), Locale('ar')],
@@ -66,11 +67,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    return Scaffold(
-        body: SafeArea(
-            child: globalCachedUserToken == null || globalCachedUserToken == ""
-                ? const LogInScreen()
-                : const HomeScreen()));
+    return const Scaffold(
+        // body: SafeArea(
+        //     child: globalCachedUserToken == null || globalCachedUserToken == ""
+        //         ? const LogInScreen()
+        //         : const HomeScreen()),
+
+        body: SafeArea(child: HomeScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
     // return const Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(
