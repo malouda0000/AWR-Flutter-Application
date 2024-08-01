@@ -1,16 +1,23 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:awr_flutter_application/core/constants/app_constants.dart';
+import 'package:awr_flutter_application/core/constants/app_images.dart';
 import 'package:awr_flutter_application/core/functions/navigation.dart';
 import 'package:awr_flutter_application/core/helpers/user_experence_helper.dart';
 import 'package:awr_flutter_application/core/themes/colors.dart';
 import 'package:awr_flutter_application/generated/I10n.dart';
+import 'package:awr_flutter_application/view/auth/log_in_screen.dart';
 import 'package:awr_flutter_application/view/home/home_screen.dart';
+import 'package:awr_flutter_application/view/shared/app_toast.dart';
 import 'package:awr_flutter_application/view/shared/error_screen.dart';
 import 'package:awr_flutter_application/view/shared/loading_screen.dart';
+import 'package:awr_flutter_application/view/shared/under_dev_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+part "widgets/signup_widgets.dart";
 
 bool _obscuringTextOrNot = true;
 bool? _userAgreementChecked = false;
@@ -79,109 +86,116 @@ class _SignupScreenState extends State<SignupScreen> {
                     const SizedBox(
                       height: 30,
                     ),
-                    BlocConsumer<AuthBloc, AuthState>(
-                      listener: (context, state) {
-                        // TODO: implement listener
 
-                        if (state is AuthSuccessStateSignUp) {
-                          showToast(
-                              message:
-                                  "${S.of(context).signUpSuccess}: ${context.read<AuthBloc>().cashedUserName != null ? context.read<AuthBloc>().cashedUserName! : " "}");
-                          // AppCubit.get(context).getUser();
-                          navigateToWithReplacement(
-                            context,
-                            const HomeScreen(),
-                          );
-                        }
+                    // #### this code is for the signup logic and the bloc #### //
 
-                        if (state is AuthErrorStateSignIn) {
-                          // context.loaderOverlay.hide();
-                          showToast(
-                            message: state.errorMessage,
-                          );
+//                     BlocConsumer<AuthBloc, AuthState>(
+//                       listener: (context, state) {
+//                         // TODO: implement listener
 
-                          // Duration(seconds: 5 ) ;
+//                         if (state is AuthSuccessStateSignUp) {
+//                           showToast(
+//                               message:
+//                                   "${S.of(context).signUpSuccess}: ${context.read<AuthBloc>().cashedUserName != null ? context.read<AuthBloc>().cashedUserName! : " "}");
+//                           // AppCubit.get(context).getUser();
+//                           navigateToWithReplacement(
+//                             context,
+//                             const HomeScreen(),
+//                           );
+//                         }
 
-// context.read<AuthBloc>().add(AuthInitialState());
-                        }
-                      },
-                      builder: (context, state) {
-                        if (state is AuthLoadingStateSignUp) {
-                          return const SizedBox(
-                              width: 200,
-                              height: 200,
-                              child: CustomLoadingScreen());
-                        } else if (state is AuthErrorStateSignUp) {
-                          return SizedBox(
-                              width: 200,
-                              height: 200,
-                              child: ErrorScreen(
-                                  errorMessage: state.errorMessage));
-                        }
+//                         if (state is AuthErrorStateSignIn) {
+//                           // context.loaderOverlay.hide();
+//                           showToast(
+//                             message: state.errorMessage,
+//                           );
 
-                        // else if (state is AuthInitialState )
-                        // {return CustomLoadingScreen();}
+//                           // Duration(seconds: 5 ) ;
 
-                        // else if (state is AuthSuccessStateSignUp )
-                        // {return _SignUpBody(context);}
+// // context.read<AuthBloc>().add(AuthInitialState());
+//                         }
+//                       },
+//                       builder: (context, state) {
+//                         if (state is AuthLoadingStateSignUp) {
+//                           return const SizedBox(
+//                               width: 200,
+//                               height: 200,
+//                               child: CustomLoadingScreen());
+//                         } else if (state is AuthErrorStateSignUp) {
+//                           return SizedBox(
+//                               width: 200,
+//                               height: 200,
+//                               child: ErrorScreen(
+//                                   errorMessage: state.errorMessage));
+//                         }
 
-                        else {
-                          return _SignUpBody(context);
-                          // return Form(
-                          //     key: signUpKey,
-                          //     child: Column(
-                          //       children: [
-                          //         const _UserNameFormFeild(),
-                          //         const SizedBox(
-                          //           height: 20,
-                          //         ),
-                          //         _UserEmailFormFeild(),
-                          //         const SizedBox(
-                          //           height: 20,
-                          //         ),
-                          //         _UserPhonNumText(),
-                          //         const SizedBox(
-                          //           height: 20,
-                          //         ),
-                          //         _PasswordFormFeild(context),
-                          //         const SizedBox(
-                          //           height: 20,
-                          //         ),
-                          //         _ConfirmPasswordFormFeild(context),
-                          //         const SizedBox(
-                          //           height: 20,
-                          //         ),
-                          //         _UserAggrementRow(context),
-                          //         const SizedBox(
-                          //           height: 20,
-                          //         ),
-                          //         _SignUpButton(
-                          //             // signUpKey: signUpKey,
-                          //             ),
-                          //         const SizedBox(
-                          //           height: 30,
-                          //         ),
-                          //         const _DepugSign(),
-                          //         const SizedBox(
-                          //           height: 30,
-                          //         ),
-                          //         const _DoYouHaveAccount(),
-                          //         const SizedBox(
-                          //           height: 30,
-                          //         ),
-                          //         const _OrSignUpWithGoogle(),
-                          //         const SizedBox(
-                          //           height: 30,
-                          //         ),
-                          //         _GoogleIcons(),
-                          //         const SizedBox(
-                          //           height: 30,
-                          //         ),
-                          //       ],
-                          //     ));
-                        }
-                      },
-                    )
+//                         // else if (state is AuthInitialState )
+//                         // {return CustomLoadingScreen();}
+
+//                         // else if (state is AuthSuccessStateSignUp )
+//                         // {return _SignUpBody(context);}
+
+//                         else {
+//                           return _SignUpBody(context);
+//                           // return Form(
+//                           //     key: signUpKey,
+//                           //     child: Column(
+//                           //       children: [
+//                           //         const _UserNameFormFeild(),
+//                           //         const SizedBox(
+//                           //           height: 20,
+//                           //         ),
+//                           //         _UserEmailFormFeild(),
+//                           //         const SizedBox(
+//                           //           height: 20,
+//                           //         ),
+//                           //         _UserPhonNumText(),
+//                           //         const SizedBox(
+//                           //           height: 20,
+//                           //         ),
+//                           //         _PasswordFormFeild(context),
+//                           //         const SizedBox(
+//                           //           height: 20,
+//                           //         ),
+//                           //         _ConfirmPasswordFormFeild(context),
+//                           //         const SizedBox(
+//                           //           height: 20,
+//                           //         ),
+//                           //         _UserAggrementRow(context),
+//                           //         const SizedBox(
+//                           //           height: 20,
+//                           //         ),
+//                           //         _SignUpButton(
+//                           //             // signUpKey: signUpKey,
+//                           //             ),
+//                           //         const SizedBox(
+//                           //           height: 30,
+//                           //         ),
+//                           //         const _DepugSign(),
+//                           //         const SizedBox(
+//                           //           height: 30,
+//                           //         ),
+//                           //         const _DoYouHaveAccount(),
+//                           //         const SizedBox(
+//                           //           height: 30,
+//                           //         ),
+//                           //         const _OrSignUpWithGoogle(),
+//                           //         const SizedBox(
+//                           //           height: 30,
+//                           //         ),
+//                           //         _GoogleIcons(),
+//                           //         const SizedBox(
+//                           //           height: 30,
+//                           //         ),
+//                           //       ],
+//                           //     ));
+//                         }
+//                       },
+//                     ),
+
+// #### the above code is for the signup logic and the bloc #### //
+
+                    _SignUpBody(context),
                   ],
                 ),
               )
@@ -430,7 +444,7 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  Container  _PasswordFormFeild(BuildContext context) {
+  Container _PasswordFormFeild(BuildContext context) {
     return Container(
       // password feild
       decoration: BoxDecoration(
@@ -574,11 +588,11 @@ class _SignUpButtonState extends State<_SignUpButton> {
           }
 
           // #### every thing is true #### //
-          if (_userAgreementChecked == true) {
-            context.read<AuthBloc>().add(AuthSignupEvet(
-                  theContext: context,
-                ));
-          }
+          // if (_userAgreementChecked == true) {
+          //   context.read<AuthBloc>().add(AuthSignupEvet(
+          //         theContext: context,
+          //       ));
+          // }
         }
       },
       child: Container(

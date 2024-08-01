@@ -6,8 +6,9 @@ import 'package:awr_flutter_application/core/functions/navigation.dart';
 import 'package:awr_flutter_application/core/themes/colors.dart';
 import 'package:awr_flutter_application/generated/I10n.dart';
 import 'package:awr_flutter_application/view/auth/forget_password_screen.dart';
-import 'package:awr_flutter_application/view/auth/sign_up_screen.dart';
+import 'package:awr_flutter_application/view/auth/signup_screen.dart';
 import 'package:awr_flutter_application/view/home/home_screen.dart';
+import 'package:awr_flutter_application/view/shared/app_toast.dart';
 import 'package:awr_flutter_application/view/shared/loading_screen.dart';
 import 'package:awr_flutter_application/view/shared/under_dev_screen.dart';
 import 'package:flutter/material.dart';
@@ -61,53 +62,54 @@ class _LogInScreenState extends State<LogInScreen> {
                 padding: const EdgeInsets.symmetric(
                   horizontal: 15,
                 ),
-                child: BlocConsumer<AuthBloc, AuthState>(
-                  listener: (context, state) {
-                    // TODO: implement listener
+                // child: BlocConsumer<AuthBloc, AuthState>(
+                //   listener: (context, state) {
+                //     // TODO: implement listener
 
-                    if (state is AuthSuccessStateSignIn) {
-                      showToast(
-                          message:
-                              "${S.of(context).signInWelcome}: ${context.read<AuthBloc>().cashedUserName != null ? context.read<AuthBloc>().cashedUserName! : " "}");
-                      // AppCubit.get(context).getUser();
-                      navigateToWithReplacement(
-                        context,
-                        const HomeScreen(),
-                      );
-                    }
+                //     if (state is AuthSuccessStateSignIn) {
+                //       showToast(
+                //           message:
+                //               "${S.of(context).signInWelcome}: ${context.read<AuthBloc>().cashedUserName != null ? context.read<AuthBloc>().cashedUserName! : " "}");
+                //       // AppCubit.get(context).getUser();
+                //       navigateToWithReplacement(
+                //         context,
+                //         const HomeScreen(),
+                //       );
+                //     }
 
-                    if (state is AuthErrorStateSignIn) {
-                      // context.loaderOverlay.hide();
-                      showToast(
-                        message: state.errorMessage,
-                      );
-                    }
-                  },
-                  builder: (context, state) {
-                    if (state is AuthLoadingStateSignIn) {
-                      return const SizedBox(
-                          width: 200,
-                          height: 200,
-                          child: CustomLoadingScreen());
-                    }
-                    // else if (state is AuthErrorState) {
-                    //   return SizedBox(
-                    //       width: 200,
-                    //       height: 200,
-                    //       child: ErrorScreen(errorMessage: state.errorMessage));
-                    // }
+                //     if (state is AuthErrorStateSignIn) {
+                //       // context.loaderOverlay.hide();
+                //       showToast(
+                //         message: state.errorMessage,
+                //       );
+                //     }
+                //   },
+                //   builder: (context, state) {
+                //     if (state is AuthLoadingStateSignIn) {
+                //       return const SizedBox(
+                //           width: 200,
+                //           height: 200,
+                //           child: CustomLoadingScreen());
+                //     }
+                //     // else if (state is AuthErrorState) {
+                //     //   return SizedBox(
+                //     //       width: 200,
+                //     //       height: 200,
+                //     //       child: ErrorScreen(errorMessage: state.errorMessage));
+                //     // }
 
-                    // else if (state is AuthInitialState )
-                    // {return CustomLoadingScreen();}
+                //     // else if (state is AuthInitialState )
+                //     // {return CustomLoadingScreen();}
 
-                    // else if (state is AuthSuccessState )
-                    // {return _LoginBody();}
+                //     // else if (state is AuthSuccessState )
+                //     // {return _LoginBody();}
 
-                    else {
-                      return _LoginBody();
-                    }
-                  },
-                ),
+                //     else {
+                //       return _LoginBody();
+                //     }
+                //   },
+                // ),
+                child: _LoginBody(),
               )
             ],
           ),
@@ -549,7 +551,7 @@ class _AuthCustomIcon extends StatelessWidget {
                   // width: 10,
                   // height: 10,
                   image: AssetImage(
-                    AppImages.selShoHoriTextPng,
+                    AppImages.logoPng,
                   ),
                 ),
                 const SizedBox(
