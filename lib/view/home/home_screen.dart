@@ -28,7 +28,8 @@ TextEditingController _searchTextEditingController =
     new TextEditingController();
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key,
+   });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -47,51 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
               // drawer: CustomDrawer(
               //   theHomeBuildContext: context,
               // ),
-              drawer: Drawer(
-                // drawer: Drawer(
-                child: ListView(
-                  children: [
-                    DrawerHeader(
-                      decoration: BoxDecoration(
-                        color: AppColors.mainColor,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          CircleAvatar(
-                            radius: 40,
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.person,
-                              size: 40,
-                              color: AppColors.mainColor,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          // Text(
-                          //   "AWR",
-                          //   style: TextStyle(
-                          //       color: Colors.white,
-                          //       fontSize: 20,
-                          //       fontWeight: FontWeight.bold),
-                          // ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "awr@gamil.com",
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+             
               // appBar: CustomAppBar(),
               appBar: AppBar(
                 leading: IconButton(

@@ -1,3 +1,4 @@
+import 'package:awr_flutter_application/core/themes/colors.dart';
 import 'package:awr_flutter_application/core/themes/light_theme.dart';
 import 'package:awr_flutter_application/generated/I10n.dart';
 import 'package:awr_flutter_application/view/auth/log_in_screen.dart';
@@ -67,7 +68,52 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    return const Scaffold(
+    return Scaffold(
+        drawer: Drawer(
+          // drawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: AppColors.mainColor,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        Icons.person,
+                        size: 40,
+                        color: AppColors.mainColor,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    // Text(
+                    //   "AWR",
+                    //   style: TextStyle(
+                    //       color: Colors.white,
+                    //       fontSize: 20,
+                    //       fontWeight: FontWeight.bold),
+                    // ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "awr@gamil.com",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
         // body: SafeArea(
         //     child: globalCachedUserToken == null || globalCachedUserToken == ""
         //         ? const LogInScreen()
