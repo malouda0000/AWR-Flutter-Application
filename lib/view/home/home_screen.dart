@@ -28,8 +28,9 @@ TextEditingController _searchTextEditingController =
     new TextEditingController();
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key,
-   });
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -48,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
               // drawer: CustomDrawer(
               //   theHomeBuildContext: context,
               // ),
-             
+
               // appBar: CustomAppBar(),
               appBar: AppBar(
                 leading: IconButton(
@@ -62,7 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 title: Text(
                   // AppLocalizations.of(context)!.home,
-                  "AWR",
+                  // "AWR",
+                  "Select shop vendor",
                   style: _customTitleTextStyle,
                 ),
                 actions: [
@@ -71,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => UnderDevScreen()));
+                              builder: (context) => UnderDevScreen(), ), );
                     },
                     icon: Icon(
                       Icons.search,
