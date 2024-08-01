@@ -19,15 +19,15 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
             items: [
               Container(
                 color: Colors.red,
-                child: Center(child: Text('Page 1')),
+                child: const Center(child: Text('Page 1')),
               ),
               Container(
                 color: Colors.green,
-                child: Center(child: Text('Page 2')),
+                child: const Center(child: Text('Page 2')),
               ),
               Container(
                 color: Colors.blue,
-                child: Center(child: Text('Page 3')),
+                child: const Center(child: Text('Page 3')),
               ),
             ],
             options: CarouselOptions(
@@ -42,7 +42,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
               },
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -50,7 +50,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
                 Container(
                   width: 8.0,
                   height: 8.0,
-                  margin: EdgeInsets.symmetric(horizontal: 2.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 2.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: _currentIndex == i ? Colors.blue : Colors.grey,
