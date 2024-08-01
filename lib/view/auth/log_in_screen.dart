@@ -55,9 +55,31 @@ class _LogInScreenState extends State<LogInScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: _AuthCustomIcon(size: size)),
+              // #### cusstom app icon for select shop #### //
+              // Directionality(
+              //     textDirection: TextDirection.ltr,
+              //     child: _AuthCustomIcon(size: size)),
+              const SizedBox(
+                height: 50,
+              ),
+              Container(
+                width: 200,
+                height: 200,
+                decoration: BoxDecoration(
+                    boxShadow: AppConstants.theBoxShdow,
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: AssetImage(
+                        AppImages.logoPng,
+                      ),
+                      fit: BoxFit.cover,
+                    )),
+                // child: Image.asset(
+                //   AppImages.logoPng,
+                //   height: 100,
+                //   width: 100,
+                // ),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 15,
