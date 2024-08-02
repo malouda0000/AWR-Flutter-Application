@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
               //   floatingActionButton: CustomFloatingAcctionButton(),
               //   bottomNavigationBar: CustomBottomNavBar(),
               //   resizeToAvoidBottomInset: false, // Set this to false
-              body: MapSample(),
+              // body: MapSample(),
             ),
           ),
         ));
