@@ -41,3 +41,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+android/app/src/main/AndroidManifest.xml
+lib/firebase_options.dart
+lib/core/constants/app_security_constants.dart
