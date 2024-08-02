@@ -2,6 +2,7 @@
 
 import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:awr_flutter_application/core/themes/colors.dart';
+import 'package:awr_flutter_application/view/home/widgets/maps_preview.dart';
 import 'package:awr_flutter_application/view/shared/under_dev_screen.dart';
 // import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -24,8 +25,7 @@ TextStyle _customTitleTextStyle = TextStyle(
   fontSize: 18,
 );
 
-TextEditingController _searchTextEditingController =
-    new TextEditingController();
+TextEditingController _searchTextEditingController = TextEditingController();
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -71,9 +71,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   IconButton(
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => UnderDevScreen(), ), );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UnderDevScreen(),
+                        ),
+                      );
                     },
                     icon: Icon(
                       Icons.search,
@@ -116,6 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
               //   floatingActionButton: CustomFloatingAcctionButton(),
               //   bottomNavigationBar: CustomBottomNavBar(),
               //   resizeToAvoidBottomInset: false, // Set this to false
+              body: MapSample(),
             ),
           ),
         ));

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "242170350559",
+    "project_id": "awr-live-location-tracking",
+    "storage_bucket": "awr-live-location-tracking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242170350559:android:a5e4b3da1b390a282bd26a",
+        "android_client_info": {
+          "package_name": "com.example.awr_flutter_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjdQXm9Jw7Rq1n_JPotNsQDu6LSSV03WI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
