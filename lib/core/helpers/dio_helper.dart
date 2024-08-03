@@ -1,5 +1,6 @@
 import 'package:awr_flutter_application/main.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DioHelper {
   
@@ -11,7 +12,7 @@ class DioHelper {
   // static const String baseUrl = 'https://crm.awr.info/api/';
 
   // #### production #### //
-  static const String baseUrl = 'https://api.awr.ae';
+  static  String baseUrl = "${dotenv.env["APIENDPOINT"]}";
   // static const String? userToken = globalUserToken ;
 
   static const String logInUrl = '/customer/signin';

@@ -8,6 +8,7 @@ import 'package:awr_flutter_application/generated/I10n.dart';
 import 'package:awr_flutter_application/view/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 String? globalCachedUserToken;
@@ -25,8 +26,11 @@ PageController thePageController = PageController(
   keepPage: true,
 );
 // final GlobalKey mainAppKey = GlobalKey();
-void main()async {
-    WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(
+    fileName: ".env",
+  );
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
