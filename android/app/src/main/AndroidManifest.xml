@@ -11,6 +11,7 @@
         android:label="awr_flutter_application"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <!-- for the awr dev team: her use your maps api key -->
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value= "${MAPS_API_KEY}"/>
             
